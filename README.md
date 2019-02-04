@@ -27,14 +27,7 @@ The command that produces the number of files in the working directory
 
 `$ git ls-files | wc -l`
 
-###  Creating the git snapshot alias
+### Restoring revisions with git reset
+The history of the repository can be displayed as a list of revisions. We can use $ git log --pretty=oneline or the alias $ git l. As you already know, every revision is identified by its unique name. To restore the working directory to one of the revisions you can use:
 
-`[alias]
-    snapshot = "!snapshot() {
-        COMMENT=wip;
-        if [ \"$*\" ]; then
-            COMMENT=\"$*\";
-        fi;
-git add -A;
-        git commit -m \"$COMMENT\";
-    }; snapshot"`
+` git reset --hard [REVISION]`

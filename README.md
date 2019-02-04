@@ -26,3 +26,15 @@ The command that returns the amount of space used by the working directory
 The command that produces the number of files in the working directory 
 
 `$ git ls-files | wc -l`
+
+###  Creating the git snapshot alias
+
+`[alias]
+    snapshot = "!snapshot() {
+        COMMENT=wip;
+        if [ \"$*\" ]; then
+            COMMENT=\"$*\";
+        fi;
+git add -A;
+        git commit -m \"$COMMENT\";
+    }; snapshot"`
